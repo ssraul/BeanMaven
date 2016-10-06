@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+		
+	
+		<bean id="cliente1" class="crazy.model.client.Cliente">
+		<property name="nombre" value="Raul"></property>
+		<property name="apellido" value="Sanchez Sanchez"></property>
+		<property name="email" value="Raul@gmail.com"></property>
+	</bean>
+
+		<bean id="cliente2" class="crazy.model.client.Cliente">
+			<property name="nombre" value="Hector"></property>
+			<property name="apellido" value="Dominguez"></property>
+			<property name="email" value="Hector@gmail.com"></property>
+		</bean>
+		
+		
+				
+		<bean id="cdao" class="crazy.dao.ClientDAO"></bean>
+		
+		
+		
+		<bean id="clienteSrv" class="crazy.service.client.ClienteService">
+			<property name="clDAO" ref="cdao"></property>
+		</bean>
+</beans>
+
+
+
+<!-- hacer este proyecto para iniciar el proyecto
+
+1.proyecto java
+2.convertir a maven
+3.ir a maven y descargar las librerias de sring-contex
+4.como vamos a definir beans creamos fichero definicion de beans, uqe se ha de crear en la carpeta src. con el fichero configuracion de beans
+5.añadir espacio de nombres xmlns:context="http://www.springframework.org/schema/context" en namespace
+
+ -->
