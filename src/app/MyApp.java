@@ -23,7 +23,10 @@ public class MyApp {
 		Cliente c1 = (Cliente) appCtx.getBean("cliente1");
 		Cliente c2 = (Cliente) appCtx.getBean("cliente2");
 		
-		ClienteService cs = (ClienteService) appCtx.getBean("clienteSrv");
+		
+		//dos maneras de hacerlo:
+		//ClienteService cs = (ClienteService) appCtx.getBean("clienteSrv");
+		ClienteService cs = (ClienteService) appCtx.getBean(ClienteService.class);
 		
 		System.out.println(c2.getNombre());
 		System.out.println(c2.getApellido());

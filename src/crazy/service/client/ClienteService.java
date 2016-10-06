@@ -6,10 +6,13 @@ import org.springframework.stereotype.Component;
 import crazy.dao.ClientDAO;
 import crazy.model.client.Cliente;
 
+
+//el Component indica que es un Bean tenemos que añadir en el fichero de beans
+//<context:component-scan base-package="crazy.service.client"></context:component-scan>
 @Component
 public class ClienteService {
 	
-	//es la que vamos a utilizar para acceder a los clientes
+	//es el equivalente a la referencia
 	@Autowired
 	private ClientDAO clDAO;
 	

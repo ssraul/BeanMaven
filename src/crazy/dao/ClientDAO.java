@@ -6,6 +6,9 @@ import org.springframework.stereotype.Component;
 import crazy.model.client.Cliente;
 
 
+//el Component indica que es un Bean
+//<context:component-scan base-package="crazy.dao"></context:component-scan>
+@Component
 public class ClientDAO {
 	
 	public Cliente getCliente(String email){

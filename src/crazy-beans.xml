@@ -4,29 +4,50 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-		
 	
+	
+		
+	<!-- Cogemos los datos del archivo haciendo referefncia a los datos -->
 		<bean id="cliente1" class="crazy.model.client.Cliente">
-		<property name="nombre" value="Raul"></property>
-		<property name="apellido" value="Sanchez Sanchez"></property>
-		<property name="email" value="Raul@gmail.com"></property>
+		<property name="nombre" value="${cliente1.nombre}"></property>
+		<property name="apellido" value="${cliente1.apellido}"></property>
+		<property name="email" value="${cliente1.email}"></property>
 	</bean>
 
+	<!-- Cogemos los datos del archivo haciendo referefncia a los datos -->
 		<bean id="cliente2" class="crazy.model.client.Cliente">
-			<property name="nombre" value="Hector"></property>
-			<property name="apellido" value="Dominguez"></property>
-			<property name="email" value="Hector@gmail.com"></property>
+			<property name="nombre" value="${cliente2.nombre}"></property>
+			<property name="apellido" value="${cliente2.apellido}"></property>
+			<property name="email" value="${cliente2.email}"></property>
 		</bean>
 		
 		
-				
-		<bean id="cdao" class="crazy.dao.ClientDAO"></bean>
+	
 		
+		<context:component-scan base-package="crazy.dao"></context:component-scan>
+		<context:component-scan base-package="crazy.service.client"></context:component-scan>
 		
-		
+		<!-- los ponemos manualmente o los podemos scannear, pero tenemos que añadir el @Component delante de la clase en sus archivo
+		<context:component-scan base-package="crazy.dao"></context:component-scan>
+		<context:component-scan base-package="crazy.sercice.client"></context:component-scan>
+		 -->	
+		 
+		 	
+<!-- 		<bean id="cdao" class="crazy.dao.ClientDAO"></bean>		
 		<bean id="clienteSrv" class="crazy.service.client.ClienteService">
 			<property name="clDAO" ref="cdao"></property>
-		</bean>
+		</bean> -->
+		
+		
+		
+		
+		
+		<!-- para tener un fichero de configuracion y pasarle parametros -->
+		<context:property-placeholder location="mycrazy.properties"/>
+		
+		
+		
+		
 </beans>
 
 
