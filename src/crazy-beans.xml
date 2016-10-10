@@ -21,11 +21,18 @@
 			<property name="email" value="${cliente2.email}"></property>
 		</bean>
 		
-		
-	
-		
+				
 		<context:component-scan base-package="crazy.dao"></context:component-scan>
 		<context:component-scan base-package="crazy.service.client"></context:component-scan>
+		
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${driver}"/>
+		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${pass}"/>		
+		</bean>
+		
+		
 		
 		<!-- los ponemos manualmente o los podemos scannear, pero tenemos que añadir el @Component delante de la clase en sus archivo
 		<context:component-scan base-package="crazy.dao"></context:component-scan>

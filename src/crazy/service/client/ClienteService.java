@@ -9,13 +9,12 @@ import crazy.model.client.Cliente;
 
 //el Component indica que es un Bean tenemos que añadir en el fichero de beans
 //<context:component-scan base-package="crazy.service.client"></context:component-scan>
-@Component
+@Component//le decimos que es un bean y los cargamos en memoria
 public class ClienteService {
 	
 	//es el equivalente a la referencia
 	@Autowired
-	private ClientDAO clDAO;
-	
+	private ClientDAO clDAO;	
 	
 	//genera getters y setters
 	public ClientDAO getClDAO() {
@@ -23,12 +22,9 @@ public class ClienteService {
 	}
 
 
-
 	public void setClDAO(ClientDAO clDAO) {
 		this.clDAO = clDAO;
 	}
-
-	
 
 	//metodos
 	public Cliente getCliente(String email){

@@ -19,25 +19,38 @@ public class MyApp {
 		//1.intanciamos el fichero que tenemos de beans, para que lo gestione Spring
 		ApplicationContext appCtx = new ClassPathXmlApplicationContext("crazy-beans.xml");
 		
-		//obtener un bean, se puede hacer por id o por clase. te obliga a hacerle un cast, es como hacer un new pero ahora lo hace Spring
-		Cliente c1 = (Cliente) appCtx.getBean("cliente1");
-		Cliente c2 = (Cliente) appCtx.getBean("cliente2");
+		
+		ClienteService cs = (ClienteService)appCtx.getBean(ClienteService.class);		
+		Cliente nuevo = cs.getCliente("raul@gmail.com");
+		System.out.println(nuevo.getNombre());
+		System.out.println(nuevo.getApellido());
+		System.out.println(nuevo.getEmail());
 		
 		
-		//dos maneras de hacerlo:
-		//ClienteService cs = (ClienteService) appCtx.getBean("clienteSrv");
-		ClienteService cs = (ClienteService) appCtx.getBean(ClienteService.class);
-		
-		System.out.println(c2.getNombre());
-		System.out.println(c2.getApellido());
-		System.out.println(c2.getEmail());
-		
-		Cliente c3= cs.getCliente("Raul@gmail.com");
-		
-		System.out.println(c3.getNombre());
-		System.out.println(c3.getApellido());
-		System.out.println(c3.getEmail());
-		
+//		/**
+//		 * Ejercicio anterior
+//		 * 
+//		 */
+//		
+//		//obtener un bean, se puede hacer por id o por clase. te obliga a hacerle un cast, es como hacer un new pero ahora lo hace Spring
+//		Cliente c1 = (Cliente) appCtx.getBean("cliente1");
+//		Cliente c2 = (Cliente) appCtx.getBean("cliente2");
+//		
+//		
+//		//dos maneras de hacerlo:
+//		//ClienteService cs = (ClienteService) appCtx.getBean("clienteSrv");
+//		ClienteService cs = (ClienteService) appCtx.getBean(ClienteService.class);
+//		
+//		System.out.println(c2.getNombre());
+//		System.out.println(c2.getApellido());
+//		System.out.println(c2.getEmail());
+//		
+//		Cliente c3= cs.getCliente("Raul@gmail.com");
+//		
+//		System.out.println(c3.getNombre());
+//		System.out.println(c3.getApellido());
+//		System.out.println(c3.getEmail());
+//		
 		
 		
 		
