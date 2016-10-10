@@ -25,12 +25,27 @@
 		<context:component-scan base-package="crazy.dao"></context:component-scan>
 		<context:component-scan base-package="crazy.service.client"></context:component-scan>
 		
+		
+		<!-- Para conexion a base de datos normal, solo abre una conexión
 		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="${driver}"/>
+		
+		 -->
+		 
+		 <!-- Este puede tener multiples conexiones abiertas es más efectivo 
+		 <bean class="org.apache.commons.dbcp2.BasicDataSource">
+		 <property name="driverClassName" value="${driver}"/>
 		<property name="url" value="${url}"/>
+		<property name="username" value="${user}"/>
+		<property name="password" value="${pass}"/>	
+		 -->
+		 
+		<!-- Este es el mejor pool, no necesita el driver, la propiedad url necesita de name="jdbcUrl" -->
+		<bean class="com.zaxxer.hikari.HikariDataSource">
+		<property name="jdbcUrl" value="${url}"/>
 		<property name="username" value="${user}"/>
 		<property name="password" value="${pass}"/>		
 		</bean>
+		
 		
 		
 		

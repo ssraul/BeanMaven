@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 //será el que acceda a la base de datos
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ import crazy.model.client.Cliente;
 public class ClientDAO {
 	
 	@Autowired//auto inyectable para que lo sepa Spring
+	//@Qualifier("beanname")para darle un nombre al datasource, hay que añadirle el id al bean de la conexion
 	DataSource datasource;
 
 	public DataSource getDatasource() {
